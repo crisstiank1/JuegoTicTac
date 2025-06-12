@@ -45,11 +45,7 @@
         </div>
     </nav>
     <main class="container mt-4">
-        ```
 
-**2. `tic-tac-toe/includes/footer.php`**
-
-```php
 <?php
 // includes/footer.php
 ?>

@@ -1,0 +1,131 @@
+/* Estilos Generales y Reseteo Básico */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    display: flex; /* Para usar flexbox en el body */
+    flex-direction: column; /* Apila el contenido verticalmente */
+    min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la ventana */
+    margin: 0; /* Elimina el margen por defecto del body */
+}
+
+main {
+    flex: 1; /* Permite que el contenido principal (main) ocupe el espacio restante, empujando el footer hacia abajo */
+    padding-top: 20px; /* Un poco de espacio entre la navbar y el contenido */
+    padding-bottom: 20px; /* Un poco de espacio entre el contenido y el footer */
+}
+
+/* Estilos para la barra de navegación (Navbar) - Ya manejado por Bootstrap mayormente */
+.navbar {
+    margin-bottom: 20px; /* Espacio debajo de la barra de navegación */
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.nav-link {
+    font-weight: 500;
+}
+
+/* Estilos para el Jumbotron (Mensaje de bienvenida cuando no hay sesión) */
+.jumbotron {
+    padding: 4rem 2rem; /* Espaciado interno */
+    margin-bottom: 2rem; /* Margen inferior */
+    background-color: #e9ecef; /* Fondo gris claro */
+    border-radius: .3rem; /* Bordes ligeramente redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.jumbotron h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #343a40; /* Color oscuro para el título */
+}
+
+.jumbotron p.lead {
+    font-size: 1.25em;
+    margin-bottom: 30px;
+    color: #6c757d; /* Color gris para el texto */
+}
+
+/* Estilos para los botones dentro del Jumbotron */
+.jumbotron .btn {
+    margin: 5px; /* Espacio entre los botones */
+}
+
+/* Estilos del Tablero de Tic Tac Toe */
+.tic-tac-toe-board {
+    display: grid; /* Usa CSS Grid para el diseño del tablero */
+    grid-template-columns: repeat(3, 100px); /* 3 columnas de 100px cada una */
+    grid-template-rows: repeat(3, 100px);    /* 3 filas de 100px cada una */
+    gap: 5px; /* Espacio entre las celdas */
+    width: 315px; /* Ancho total: 3*100px (celdas) + 2*5px (gaps) */
+    height: 315px; /* Alto total: 3*100px (celdas) + 2*5px (gaps) */
+    background-color: #333; /* Fondo oscuro del tablero (entre las celdas) */
+    border: 5px solid #333; /* Borde del tablero */
+    margin: 20px auto; /* Centra el tablero horizontalmente y le da margen vertical */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada para el tablero */
+    border-radius: 8px; /* Bordes ligeramente redondeados para el tablero */
+    overflow: hidden; /* Asegura que el contenido no se salga de los bordes redondeados */
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #eee; /* Fondo claro de cada celda */
+    display: flex; /* Para centrar el contenido (X u O) dentro de la celda */
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+    font-size: 3em; /* Tamaño grande para X u O */
+    font-weight: bold; /* Negrita */
+    cursor: pointer; /* Cambia el cursor a una mano al pasar por encima */
+    transition: background-color 0.2s ease-in-out; /* Transición suave al pasar el ratón */
+    user-select: none; /* Evita que el texto de la celda se seleccione al hacer clic */
+    border-radius: 3px; /* Pequeño redondeado en las celdas */
+}
+
+.cell:hover {
+    background-color: #ddd; /* Color de fondo más oscuro al pasar el ratón */
+}
+
+/* Colores para las marcas X y O */
+.cell.x {
+    color: #007bff; /* Azul vibrante para X (color primario de Bootstrap) */
+}
+
+.cell.o {
+    color: #dc3545; /* Rojo vibrante para O (color de peligro de Bootstrap) */
+}
+
+/* Estilo para cuando el juego termina (deshabilita más clics) */
+.tic-tac-toe-board.game-over .cell {
+    cursor: default; /* Vuelve el cursor a la flecha */
+    pointer-events: none; /* Deshabilita completamente los eventos de clic en las celdas */
+}
+
+/* Estilos para la tabla de clasificación */
+.table {
+    margin-top: 20px; /* Espacio superior para la tabla */
+}
+
+.table thead th {
+    background-color: #6c757d; /* Fondo gris oscuro para el encabezado de la tabla */
+    color: white; /* Texto blanco */
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05); /* Rayas más claras para filas impares */
+}
+
+/* Estilos para el footer */
+.footer {
+    background-color: #e9ecef; /* Fondo claro para el pie de página */
+    color: #6c757d; /* Texto gris para el pie de página */
+    padding: 15px 0; /* Relleno vertical */
+    margin-top: auto; /* Empuja el footer hacia abajo si el contenido es corto */
+}
+
+/* Estilos para los mensajes de alerta (Bootstrap ya los maneja, pero puedes personalizarlos) */
+.alert {
+    text-align: center;
+}

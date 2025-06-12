@@ -1,5 +1,7 @@
 <?php
 // includes/header.php
+// Es importante que session_start() NO esté aquí si ya se llama en los archivos principales (index.php, login.php, etc.)
+// Ya lo hemos puesto en cada archivo principal, así que este archivo debe empezar directamente con HTML.
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -19,20 +21,33 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.php">Iniciar Sesión</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="register.php">Registrarse</a>
-                    </li>
-                    </ul>
+                    <?php
+                    // Verificar si el usuario está loggeado
+                    // Necesitas que session_start() se haya ejecutado en el script que incluye este header
+                    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']):
+                    ?>
+                        <li class="nav-item">
+                            <span class="nav-link">Hola, <?php echo htmlspecialchars($_SESSION['username']); ?></span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="logout.php">Cerrar Sesión</a>
+                        </li>
+                    <?php else: ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.php">Iniciar Sesión</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="register.php">Registrarse</a>
+                        </li>
+                    <?php endif; ?>
+                </ul>
             </div>
         </div>
     </nav>
     <main class="container mt-4">
         ```
 
-**`tic-tac-toe/includes/footer.php`:**
+**2. `tic-tac-toe/includes/footer.php`**
 
 ```php
 <?php

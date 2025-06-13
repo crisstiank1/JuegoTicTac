@@ -1,7 +1,7 @@
 <?php
-session_start(); // Inicia la sesión al principio
-include 'includes/header.php'; // Incluye el encabezado
-include 'config/db.php'; // Incluye la conexión a la base de datos
+session_start(); 
+include 'includes/header.php'; 
+include 'config/db.php'; 
 
 // Obtener puntajes de los usuarios para la tabla de clasificación
 $puntajes = [];
@@ -13,7 +13,6 @@ if ($result) {
     }
 }
 ?>
-
 
 <div class="container mt-4">
     <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']): ?>
